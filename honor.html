@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/honor.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="all_container">
+        <div class="container">
+            <!-- 顶部 -->
+            <header>
+                <div class="header-lt"></div>
+                <div class="header-gt">
+                    <div class="header-menu">
+                        <ul>
+                            <li><a href="">item</a></li>
+                            <li><a href="">item</a></li>
+                            <li><a href="">item</a></li>
+                            <li><a href="">item</a></li>
+                            <li><a href="">item</a></li>
+                        </ul>
+                        <div class="login-btn">
+                            <a href="./login.html"><i></i></a>
+                        </div>
+                    </div>
+                    <div class="header-search">
+                        <div class="search">
+                            <input type="text">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 海报信息 -->
+            <section class="sec-info">
+                <canvas id="c1"></canvas>
+                <div class="infoDiv"></div>
+            </section>
+            <!-- 中间主体 -->
+            <section class="sec-content">
+                <!-- 主体左半部分 -->
+                <div class="content-lt">
+                    <!-- 上 -->
+                    <div class="content-lt-top">
+                        <!-- 轮播 -->
+                        <div class="swiper"
+                        @mouseenter="stopInterval" @mouseout="startInterval">
+                            <div v-for="(p,i) in imglist" :key="i" class="swiper-img" :style="{opacity:(i+1)==n?'1':'0'}">
+                                <img :src="p" alt="">
+                            </div>
+                        </div>
+                        <!-- 提示小标 -->
+                        <div class="swiper-tip">
+                            <span v-for="(p,j) in imglist" :key="j" :style="{boxShadow:(j+1)==n?'0 0 5px 2px #ff0':''}"></span>
+                        </div>
+                        <!-- 翻页按钮 -->
+                        <div class="swipe-lt" @click="swipePrev">&lt;</div>
+                        <div class="swipe-gt" @click="swipeNext">&gt;</div>
+                    </div>
+                    <!-- 中 -->
+                    <div class="content-lt-ctn">
+                        <!-- 新闻列表 -->
+                        <div class="content-news">
+                            <ul class="news-menu" @click.prevent="newsClick($event)">
+                                <li><a data-id="list1" href="" @click.prevent="">item</a></li>
+                                <li><a data-id="list2" href="" @click.prevent="">item</a></li>
+                                <li><a data-id="list3" href="" @click.prevent="">item</a></li>
+                                <li><a data-id="list4" href="" @click.prevent="">item</a></li>
+                            </ul>
+
+                            <div id="list1" :style="{display: ('list1' == listitem)?'block':'none'}" class="news-list">
+                                <div class="list-item">
+                                    <div class="list-lt"></div>
+                                    <div class="list-gt"></div>
+                                </div>
+                            </div>
+
+                            <div id="list2" :style="{display: ('list2' == listitem)?'block':'none'}" class="news-list">
+                                <div class="list-item">
+                                    <div class="list-lt"></div>
+                                    <div class="list-gt"></div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-lt"></div>
+                                    <div class="list-gt"></div>
+                                </div>
+                            </div>
+
+                            <div id="list3" :style="{display: ('list3' == listitem)?'block':'none'}" class="news-list">
+                                <div class="list-item">
+                                    <div class="list-lt"></div>
+                                    <div class="list-gt"></div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-lt"></div>
+                                    <div class="list-gt"></div>
+                                </div>
+                            </div>
+
+                            <div id="list4" :style="{display: ('list4' == listitem)?'block':'none'}"  class="news-list">
+                                <div class="list-item">
+                                    <div class="list-lt"></div>
+                                    <div class="list-gt"></div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-lt"></div>
+                                    <div class="list-gt"></div>
+                                </div>
+                                <div class="list-item">
+                                    <div class="list-lt"></div>
+                                    <div class="list-gt"></div>
+                                </div>
+                            </div>
+                            <div class="page-btn">
+                                <a href="" class="listbtn">&lt;</a>
+                                <a href="" class="listbtn">1</a>
+                                <a href="" class="listbtn">2</a>
+                                <a href="" class="listbtn">3</a>
+                                <a href="" class="listbtn">···</a>
+                                <a href="" class="listbtn">8</a>
+                                <a href="" class="listbtn">9</a>
+                                <a href="" class="listbtn">10</a>
+                                <a href="" class="listbtn">&gt;</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 下 -->
+                    <div class="content-lt-btm">
+                        <!-- 商品 -->
+                    </div>
+                </div>
+                <!-- 主体右半部分 -->
+                <div class="content-gt">
+                    <!-- 标题 -->
+                    <div class="gt-title">
+                        <h3>honor</h3>
+                    </div>
+                    <div class="card-item">
+                        <div class="card-panel">
+                            <div class="card-title">title</div>
+                            <div class="card-img">
+                                <img src="" alt="">
+                            </div>
+                            <div class="card-foot">
+                                <a href="">hipe</a>
+                                <a href="">like</a>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </section>
+
+            <!-- 底部信息 -->
+            <footer>
+                <div class="foot">
+                    <div class="foot-top">
+                        <div class="foot-lt"></div>
+                        <div class="foot-ctn">
+                            <div class="foot-list">
+                                <span>apologize</span>
+                                <span>apologize</span>
+                                <span>apologize</span>
+                                <span>apologize</span>
+                            </div>
+                        </div>
+                        <div class="foot-gt"></div>
+                    </div>
+                    <div class="foot-btm"></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+</body>
+<script src="../js/vue.js"></script>
+<script src="../js/honor.js"></script>
+</html>

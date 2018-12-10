@@ -1,0 +1,478 @@
+
+body{
+    background: #000;
+    margin: 0 auto;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+#c1{
+    width: 100%;
+    height: 100%;
+}
+a{
+    text-decoration: none;
+    color: #eee;
+}
+.all_container{
+    width: 100%;
+    height: 100%;
+}
+.container{
+    min-width: 1024px;
+    max-width: 1440px;
+    min-height: 768px;
+    margin: 0 auto;
+    border: 1px solid #eee;
+}
+header{
+    width:100%;
+    height: 100px;
+    background: #333;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+.infoDiv{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 0;
+    bottom: 20%;
+    border: 1px solid #eee;
+}
+.header-lt{
+    min-width: 20%;
+    max-width: 30%;
+    width: 20%;
+    height: 100%;
+    border: 1px solid #eee;
+    
+}
+.header-gt{
+    min-width: 70%;
+    max-width: 80%;
+    width: 80%;
+    height: 100%;
+    border: 1px solid #eee;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.header-gt>div{
+    width: 95%;
+    height: 50px;
+    /* border: 1px solid #eee; */
+    position: relative;
+}
+.header-menu>ul>li{
+    float: left;
+    width: 80px;
+    color: #eee;
+    text-align: center;
+    line-height: 50px;
+    
+}
+.header-menu>ul::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.login-btn{
+    width: 50px;
+    height: 50px;
+    /* background: #4e3926; */
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+div.login-btn>a{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.login-btn>a>i{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #eee;
+}
+.login-btn>a>span{
+    display: inline-block;
+}
+.header-menu a{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+div.header-search{
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    border-top: 1px solid #eee;
+}
+.search{
+    width: 50%;
+    height: 30px;
+    margin-left: 30px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+}
+.search input{
+    width: 100%;
+    height: 30px;
+    background: #222;
+    color: #eee;
+    text-indent: 10px;
+    outline: none;
+    border: 1px solid #aaa;
+}
+.search span{
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    background: #555;
+    position: absolute;
+    right: 5px;
+    top: 2px;
+}
+/* 中间海报 */
+.sec-info{
+    width: 100%;
+    height: 550px;
+    background:rgba(0, 0, 0, .5);
+    position: relative;
+}
+
+/* 主体内容 */
+.sec-content{
+    width: 100%;
+    height: 1500px;
+    background: #aaa;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.sec-content>div{
+    height: 100%;
+}
+/* 主体左侧 */
+.content-lt{
+    width: 75%;
+}
+.content-lt>div{
+    width: 100%;
+}
+.content-lt-top{
+    height: 500px;
+    background: #4e3926;
+    position: relative;
+}
+/* 轮播图 */
+.swiper,.swiper-img{
+    /* width: 768px; */
+    min-width: 768px;
+    max-width: 1080px;
+    height: 500px;
+    position: relative;
+}
+.swiper-img{
+    /* min-width: 768px;
+    max-width: 1080px; */
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+.swiper-img>img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.swipe-lt,.swipe-gt{
+    width: 30px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    position: absolute;
+    top: 220px;
+    background: rgba(200, 200, 200, .5);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.swipe-lt{
+    left: 5px;
+}
+.swipe-gt{
+    right: 5px;  
+}
+.swiper>.swiper-img:nth-child(1) img{
+    /* background: #0af; */
+}
+.swiper>.swiper-img:nth-child(2) img{
+    /* background: #fa0; */
+}
+.swiper>.swiper-img:nth-child(3) img{
+    /* background: #0fa; */
+}
+.swiper>.swiper-img:nth-child(4) img{
+    /* background: #f0a; */
+}
+.do-hide{
+    opacity: 0;
+}
+.swiper-tip{
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    right: 100px;
+    bottom: 50px;
+}
+.swiper-tip>span{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #eee;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+.active{
+    background: #ff0;
+    box-shadow: 0 0 5px 2px #ff0;
+}
+
+.content-lt-ctn{
+    height: 800px;
+    background: #000;
+}
+/* 新闻列表 */
+.content-news{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+ul.news-menu{
+    width: 90%;
+    margin: 0 auto;
+    height: 50px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+}
+ul.news-menu>li{
+    float: left;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    color: #eee;
+    margin-left: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+ul.news-menu>li>a{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    display: inline-block;
+}
+ul.news-menu>li:hover{
+    background: #4e3926;
+}
+div.news-list{
+    width: 90%;
+    height: 700px;
+    position: absolute;
+    left: 5%;
+    top: 60px;
+    /* border: 1px solid #eee; */
+    margin: 0;
+}
+.list-item{
+    width: 100%;
+    height: 100px;
+    background: #555;
+    margin-bottom: 5px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+.list-lt{
+    width: 100px;
+    height: 100px;
+    background: #222;
+   
+}
+.list-gt{
+    /* width: 600px; */
+    width: 90%;
+    height: 100px;
+    background: #eee;
+}
+
+div.page-btn{
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    bottom: 10px;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+
+}
+.listbtn{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    margin: 0 5px;
+    color: #aaa;
+    background: #333;
+    font-size: 14px;
+    border-radius: 5px;
+}
+.listbtn:hover{
+    cursor: pointer;
+    background: #666;
+}
+ul.news-menu::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.content-lt-btm{
+    height: 200px;
+    background: #eee;
+
+}
+
+/*主体右侧*/
+.content-gt{
+    width: 25%;
+    background: #333;
+    position: relative;
+}
+.gt-title{
+    width: 96%;
+    height: 45px;
+    position: absolute;
+    left: 2%;
+    top: -45px;
+    border-radius: 10px 10px 0 0;
+    background: rgba(255, 00, 150, .5);
+}
+.gt-title>h3{
+    text-align: center;
+    color: #eee;
+}
+.card-item{
+    width: 96%;
+    margin: 0 auto;
+    height: 300px;
+    background: #fff;
+    font-family: '微软雅黑';
+}
+.card-panel{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+.card-panel>div{
+    width: 100%;
+}
+.card-title{
+    height: 40px;
+    line-height: 40px;
+    text-indent: 20px;
+    border-bottom: 1px solid #aaa;
+}
+.card-img{
+    height: 220px;
+    display: inline-block;
+    background: #555;
+}
+.card-foot{
+    border-top: 1px solid #aaa;
+    height: 40px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-foot a{
+    color: #222;
+    font-size: 14px;
+    margin: 0 20px;
+}
+
+
+
+
+/* 底部 */
+footer{
+    width: 100%;
+    height: 300px;
+    background: #000;
+}
+.foot{
+    width: 100%;
+    height: 300px;
+}
+.foot>div{
+    width: 100%;
+    height: 150px;
+}
+
+.foot-top{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.foot-top>div{
+    height: 100%;
+    display: flex;
+}
+.foot-lt{
+    width: 25%; 
+    background: #fa0;  
+}
+.foot-ctn{
+    width: 50%;
+    background: #a0f;
+    align-items: flex-end;
+}
+.foot-gt{
+    width: 25%;
+    background: #0af;
+}
+.foot-list{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.foot-btm{
+
+}
+.foot-list{
+
+}
