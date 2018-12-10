@@ -43,7 +43,7 @@ new Vue({
     data:{
         n:1,
         timer:null,
-        imglist:['poster/banner1.jpg','poster/banner2.jpg','poster/banner3.jpg','poster/banner3.jpg'],
+        imglist:['poster/banner1.jpg','poster/banner2.jpg','poster/banner3.jpg','poster/banner4.jpg'],
         activeObj:{
             'active':false
         },
