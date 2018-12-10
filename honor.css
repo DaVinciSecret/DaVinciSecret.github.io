@@ -41,7 +41,6 @@ header{
     position: absolute;
     left: 0;
     bottom: 20%;
-    /*border: 1px solid #eee;*/
 }
 .header-lt{
     min-width: 20%;
