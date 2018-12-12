@@ -45,6 +45,55 @@ header{
     line-height: 100px;
     font-family: "Comic Sans MS"
 }
+.person-info{
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    right: 50px;
+    top: 200px;
+    font-family: "微软雅黑";
+}
+
+.person-name{
+    color: #eee;
+}
+.person-msg{
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+.person-msg>span{
+    display: inline-block;
+}
+.person-msg2>span{
+    display: inline-block;
+}
+.person-msg2{
+    text-align: center;
+    position: absolute;
+    bottom: 10px; 
+    width: 100%;
+    font-size: 14px;
+}
+
+.person-name{
+    margin: 0 10px;
+}
+.person-star{
+    color: #ff0;
+    margin-right: 5px;
+}
+.person-follow{
+    color: #eee;
+}
+.person-sex{
+    font-family: monospace;
+    font-weight: bold;
+    color: #fa0;
+}
 .header-lt{
     min-width: 20%;
     max-width: 30%;
