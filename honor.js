@@ -93,9 +93,11 @@ new Vue({
         newsClick:function(e){
             var target = e.target;
             console.log(target)
-            console.log(target.dataset.id);
-            this.listitem = target.dataset.id;
-            console.log(this.listitem);
+            if(target.nodeName == "A"){
+                console.log(target.dataset.id);
+                this.listitem = target.dataset.id;
+                console.log(this.listitem);
+            }
         }
     }
 })
