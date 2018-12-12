@@ -21,7 +21,7 @@
         ctx.fillStyle = "rgba(0,0,0,0.1)";
         ctx.fillRect(0,0,canvas.width,canvas.height);
 
-        ctx.fillStyle = "#fff";
+        ctx.fillStyle = "#ff0";
         ctx.font=font_size+'px';
 
         for(var i = 0; i < drops.length; i ++){
