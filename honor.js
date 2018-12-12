@@ -52,21 +52,22 @@ new Vue({
         
     },
     mounted() {
-        this.timer = setInterval(this.swiper,2000);
+        this.timer = setInterval(this.swipeNext,2000);
     },
     methods:{
-        swiper:function(){
-            this.n++;
+         swipePrev:function(){
+            this.n --;
+            this.num --;
+            if(this.n <= 0){
+                this.n = 4;
+            }
+        },
+        swipeNext:function(){
+            this.n ++;
             this.num ++;
             if(this.n > 4){
                 this.n = 1;
             }
-        },
-        swipePrev:function(){
-            this.n --;
-        },
-        swipeNext:function(){
-            this.n ++;
         },
         stopInterval:function(){
             console.log('stop');
@@ -74,7 +75,7 @@ new Vue({
         },
         startInterval:function(){
             console.log('start');
-            this.timer = setInterval(this.swiper,2000);
+            this.timer = setInterval(this.swipeNext,2000);
         },
     }
 })
