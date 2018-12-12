@@ -34,6 +34,7 @@ header{
     flex-flow: row nowrap;
     justify-content: space-evenly;
 }
+
 /* 中间海报 */
 .sec-info{
     width: 100%;
@@ -51,6 +52,16 @@ header{
     font-size: 50px;
     line-height: 100px;
     font-family: "Comic Sans MS"
+}
+.head-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #aaa;
+    position: absolute;
+    right: 100px;
+    top: 10px;
+    overflow: hidden;
 }
 .person-info{
     width: 300px;
