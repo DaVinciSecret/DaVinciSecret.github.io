@@ -5,7 +5,7 @@
     canvas.height = window.innerHeight;
     canvas.width = window.innerWidth;
 
-    var code = "01";
+    var code = "世有伯乐，然后有千里马。千里马常有，而伯乐不常有。故虽有名马，祇（zhǐ）辱于奴隶人之手，骈（pián）死于槽（cáo）枥（lì）之间，不以千里称也。马之千里者，一食（shi）或尽粟（sù）一石(dàn)。食（sì）马者不知其能千里而食（sì）也。是马也，虽有千里之能，食（shí）不饱，力不足，才美不外见（xiàn），且欲与常马等不可得，安求其能千里也？策之不以其道，食（sì）之不能尽其材，鸣之而不能通其意，执策而曰：“天下无临之，马！”呜呼！其真无马邪（yé）？其真不知马也。";
     code = code.split("");
 
     var font_size = 10;
