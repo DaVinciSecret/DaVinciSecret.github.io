@@ -180,7 +180,7 @@ header{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    padding-top: 10px;
+    padding-top: 20px;
     justify-content: space-between;
 }
 .sec-content>div{
