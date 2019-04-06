@@ -63,8 +63,8 @@
                             <span v-for="(p,j) in imglist" :key="j" :style="{boxShadow:(j+1)==n?'0 0 5px 2px #ff0':''}"></span>
                         </div>
                         <!-- 翻页按钮 -->
-                        <div class="swipe-lt" @click="swipePrev">&lt;</div>
-                        <div class="swipe-gt" @click="swipeNext">&gt;</div>
+                        <div class="swipe-lt" @mouseenter="stopInterval" @mouseout="startInterval" @click="swipePrev">&lt;</div>
+                        <div class="swipe-gt" @mouseenter="stopInterval" @mouseout="startInterval" @click="swipeNext">&gt;</div>
                     </div>
                     <!-- 中 -->
                     <div class="content-lt-ctn">
