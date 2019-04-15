@@ -310,9 +310,9 @@ ul.news-menu>li>a{
     border-radius: 3px;
     display: inline-block;
 }
-ul.news-menu>li a:hover{
+ul.news-menu>li>a:hover{
     background: #a1a1a1;
-    color: #000;
+    color: #000 !important;
 }
 div.news-list{
     width: 90%;
