@@ -195,14 +195,14 @@ header{
 }
 .content-lt-top{
     height: 500px;
-    background: #4e3926;
+    background: #000;
     position: relative;
 }
 /* 轮播图 */
 .swiper,.swiper-img{
     /* width: 768px; */
     min-width: 768px;
-    max-width: 1080px;
+    max-width: 980px;
     height: 500px;
     position: relative;
 }
@@ -235,10 +235,10 @@ header{
     color: #fff;
 }
 .swipe-lt{
-    left: 5px;
+    left: 40px;
 }
 .swipe-gt{
-    right: 5px;  
+    right: 40px;  
 }
 .swiper>.swiper-img:nth-child(1) img{
     /* background: #0af; */
