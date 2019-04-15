@@ -307,11 +307,11 @@ ul.news-menu>li{
 ul.news-menu>li>a{
     width: 100%;
     height: 100%;
-    border-radius: 5px;
+    border-radius: 4px;
     display: inline-block;
 }
 ul.news-menu>li:hover{
-    background: #4e3926;
+    background: #a1a1a1;
 }
 div.news-list{
     width: 90%;
