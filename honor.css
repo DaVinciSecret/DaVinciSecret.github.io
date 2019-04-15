@@ -203,6 +203,7 @@ header{
     min-width: 768px;
     max-width: 980px;
     height: 500px;
+    margin:0 auto;
     position: relative;
 }
 .swiper-img{
