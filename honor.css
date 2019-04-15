@@ -200,7 +200,6 @@ header{
 }
 /* 轮播图 */
 .swiper,.swiper-img{
-    /* width: 768px; */
     min-width: 768px;
     max-width: 980px;
     height: 500px;
