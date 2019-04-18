@@ -83,7 +83,7 @@
                                     	<span class="list-lt-day">
                                     	{{item.time | timeFormate('day')}}
                                     	</span>
-                                    	<span class="list-lt-month" v-text="'/'+item.month"></span>
+                                    	<span class="list-lt-month">/{{item.time | timeFormate('month')}}</span>
                                     </div>
                                     <div class="list-gt">
                                     	<div class="list-gt-ctn">

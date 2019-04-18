@@ -80,15 +80,15 @@ new Vue({
     }
 })
 
-Vue.filter('timeFormate',function(time,value){
-	var arr = time.split('/');
-	if(value == "year"){
+Vue.filter('timeFormate',function(value,time){
+	var arr = value.split('/');
+	if(time == "year"){
 		return arr[2];
 	}
-	if(value == "month"){
+	if(time == "month"){
 		return arr[1];
 	}
-	if(value == 'day'){
+	if(time == 'day'){
 		return arr[0];
 	}
 })
@@ -112,7 +112,7 @@ new Vue({
         	year:'2019',
         	weather:'风',
         	color:'wind',
-        	time:'18/4/2019',
+        	time:'17/4/2019',
         	content:'Today is a good day，I fell happy，are you？'
         },
         {
@@ -121,7 +121,7 @@ new Vue({
         	year:'2019',
         	weather:'雨',
         	color:'rain',
-        	time:'18/4/2019',
+        	time:'16/4/2019',
         	content:'Today is a good day，I fell happy，are you？'
         },
         {
@@ -130,7 +130,7 @@ new Vue({
         	year:'2019',
         	weather:'云',
         	color:'cloud',
-        	time:'18/4/2019',
+        	time:'15/4/2019',
         	content:'Today is a good day，I fell happy，are you？'
         },
         {
@@ -139,7 +139,7 @@ new Vue({
         	year:'2019',
         	weather:'阴',
         	color:'shade',
-        	time:'18/4/2019',
+        	time:'14/4/2019',
         	content:'Today is a good day，I fell happy，are you？'
         },
         {
@@ -148,7 +148,7 @@ new Vue({
         	year:'2019',
         	weather:'云',
         	color:'cloud',
-        	time:'18/4/2019',
+        	time:'13/4/2019',
         	content:'Today is a good day，I fell happy，are you？'
         },
         {
@@ -157,7 +157,7 @@ new Vue({
         	year:'2019',
         	weather:'阴',
         	color:'shade',
-        	time:'18/4/2019',
+        	time:'12/4/2019',
         	content:'Today is a good day，I fell happy，are you？'
         },
         {
@@ -166,7 +166,7 @@ new Vue({
         	year:'2019',
         	weather:'雨',
         	color:'rain',
-        	time:'18/4/2019',
+        	time:'11/4/2019',
         	content:'Today is a good day，I fell happy，are you？'
         }],
         articalData:[{
