@@ -175,7 +175,7 @@ new Vue({
         	weather:'雪',
         	color:'snow',
         	time:'11/4/2019',
-        	content:'下雪了，下雪了，卧槽！！下雪了 '
+        	content:'下雪了，下雪了，卧槽！！下雪了耶'
         }],
         articalData:[{
         	title:'方丈的故事',
