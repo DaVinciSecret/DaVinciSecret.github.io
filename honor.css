@@ -447,6 +447,12 @@ div.news-list>div:last-child{
     box-shadow: 0 0 10px 2px #0af;
     color: #0af;
 }
+.snow{
+    box-shadow: 0 0 10px 2px #666;
+    color: #fff;
+    border:2px dashed #fff;
+    background: #555;
+}
 
 .list-gt-year{
     position: absolute;

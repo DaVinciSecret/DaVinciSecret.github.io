@@ -168,6 +168,14 @@ new Vue({
         	color:'rain',
         	time:'11/4/2019',
         	content:'Today is a good day，I fell happy，are you？'
+        },{
+        	day:'2',
+        	month:'1',
+        	year:'2019',
+        	weather:'雪',
+        	color:'snow',
+        	time:'11/4/2019',
+        	content:'下雪了，下雪了，卧槽！！下雪了 '
         }],
         articalData:[{
         	title:'方丈的故事',
