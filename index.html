@@ -71,51 +71,48 @@
                         <!-- 新闻列表 -->
                         <div class="content-news">
                             <ul class="news-menu" @click.prevent="newsClick($event)">
-                                <li><a data-id="list1" href="" @click.prevent="">item</a></li>
-                                <li><a data-id="list2" href="" @click.prevent="">item</a></li>
-                                <li><a data-id="list3" href="" @click.prevent="">item</a></li>
-                                <li><a data-id="list4" href="" @click.prevent="">item</a></li>
+                                <li><a data-id="list1" href="" @click.prevent="">日常</a></li>
+                                <li><a data-id="list2" href="" @click.prevent="">随笔</a></li>
+                                <li><a data-id="list3" href="" @click.prevent="">知识</a></li>
+                                <li><a data-id="list4" href="" @click.prevent="">其他</a></li>
                             </ul>
-
+							<!-- 日常 -->
                             <div id="list1" :style="{display: ('list1' == listitem)?'block':'none'}" class="news-list">
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
+                                <div class="list-item" v-for="item in diaryData">
+                                    <div class="list-lt">
+                                    	<span class="list-lt-day">
+                                    	{{item.time | timeFormate('day')}}
+                                    	</span>
+                                    	<span class="list-lt-month" v-text="'/'+item.month"></span>
+                                    </div>
+                                    <div class="list-gt">
+                                    	<div class="list-gt-ctn">
+											<span v-text="item.content"></span>
+                                    	</div>
+                                    	<div class="list-gt-weather">
+                                    		<span class="weather" :class="item.color" v-text="item.weather"></span>
+                                    	</div>
+                                    	<span class="list-gt-year" v-text="item.time"></span>
+                                    </div>
                                 </div>
-                                       <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                       <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                       <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                           
                             </div>
-
+							<!-- 随笔 -->
                             <div id="list2" :style="{display: ('list2' == listitem)?'block':'none'}" class="news-list">
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
+                                <div class="artical-item" v-for="item in articalData">
+                                    <div class="artical-title">
+                                    	 <h2 style="margin:8px 0;display: inline-block;" v-text="item.title"></h2> 
+                                    	 <span style="margin-left:20px;font-size: 14px;color: #555" v-text="item.author"></span>
+                                    	 <p style="font-size: 14px;font-family:Comic Sans MS;color: #666;" v-text="item.subtitle"></p>
+                                    </div>
+                                    <div class="artical-ctn">
+                                    	<span v-text="item.content"></span>
+                                    </div>
+                                    <div class="artical-foot">
+                                    	<span v-text="'Time：'+item.time"></span>
+                                    </div>
                                 </div>
                             </div>
-
+							<!-- 知识 -->
                             <div id="list3" :style="{display: ('list3' == listitem)?'block':'none'}" class="news-list">
                                 <div class="list-item">
                                     <div class="list-lt"></div>
@@ -142,7 +139,7 @@
                                     <div class="list-gt"></div>
                                 </div>
                             </div>
-
+							<!-- 其他 -->
                             <div id="list4" :style="{display: ('list4' == listitem)?'block':'none'}"  class="news-list">
                                 <div class="list-item">
                                     <div class="list-lt"></div>
@@ -158,7 +155,7 @@
                                 </div>
                             </div>
                             <!-- 翻页 -->
-                            <div class="page-btn">
+                            <!-- <div class="page-btn">
                                 <a href="" class="listbtn">&lt;</a>
                                 <a href="" class="listbtn">1</a>
                                 <a href="" class="listbtn">2</a>
@@ -168,7 +165,7 @@
                                 <a href="" class="listbtn">9</a>
                                 <a href="" class="listbtn">10</a>
                                 <a href="" class="listbtn">&gt;</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- 下 -->

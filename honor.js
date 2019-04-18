@@ -35,7 +35,7 @@
         }
     }
     setInterval(draw,1000/30);
-})()
+})();
 
 
 new Vue({
@@ -57,14 +57,14 @@ new Vue({
     methods:{
          swipePrev:function(){
             this.n --;
-            this.num --;
+            // this.num --;
             if(this.n <= 0){
                 this.n = 4;
             }
         },
         swipeNext:function(){
             this.n ++;
-            this.num ++;
+            // this.num ++;
             if(this.n > 4){
                 this.n = 1;
             }
@@ -80,11 +80,120 @@ new Vue({
     }
 })
 
-
+Vue.filter('timeFormate',function(time,value){
+	var arr = time.split('/');
+	if(value == "year"){
+		return arr[2];
+	}
+	if(value == "month"){
+		return arr[1];
+	}
+	if(value == 'day'){
+		return arr[0];
+	}
+})
 new Vue({
     el:'.content-lt-ctn',
     data:{
         listitem:'list1',
+        diaryData:[
+        {
+        	day:'18',
+        	month:'4',
+        	year:'2019',
+        	weather:'晴',
+        	color:'summer',
+        	time:'18/4/2019',
+        	content:'Today is a good day，I fell happy，are you？'
+        },
+        {
+        	day:'17',
+        	month:'4',
+        	year:'2019',
+        	weather:'风',
+        	color:'wind',
+        	time:'18/4/2019',
+        	content:'Today is a good day，I fell happy，are you？'
+        },
+        {
+        	day:'16',
+        	month:'4',
+        	year:'2019',
+        	weather:'雨',
+        	color:'rain',
+        	time:'18/4/2019',
+        	content:'Today is a good day，I fell happy，are you？'
+        },
+        {
+        	day:'15',
+        	month:'4',
+        	year:'2019',
+        	weather:'云',
+        	color:'cloud',
+        	time:'18/4/2019',
+        	content:'Today is a good day，I fell happy，are you？'
+        },
+        {
+        	day:'14',
+        	month:'4',
+        	year:'2019',
+        	weather:'阴',
+        	color:'shade',
+        	time:'18/4/2019',
+        	content:'Today is a good day，I fell happy，are you？'
+        },
+        {
+        	day:'13',
+        	month:'4',
+        	year:'2019',
+        	weather:'云',
+        	color:'cloud',
+        	time:'18/4/2019',
+        	content:'Today is a good day，I fell happy，are you？'
+        },
+        {
+        	day:'12',
+        	month:'4',
+        	year:'2019',
+        	weather:'阴',
+        	color:'shade',
+        	time:'18/4/2019',
+        	content:'Today is a good day，I fell happy，are you？'
+        },
+        {
+        	day:'11',
+        	month:'4',
+        	year:'2019',
+        	weather:'雨',
+        	color:'rain',
+        	time:'18/4/2019',
+        	content:'Today is a good day，I fell happy，are you？'
+        }],
+        articalData:[{
+        	title:'方丈的故事',
+        	subtitle:'这是一个很久很久以前的故事……',
+        	time:'6/8/2017',
+        	author:'川枫·流',
+        	content:'今天川枫遇见了一位方丈，方丈为川枫讲了一个故事，深深的启发着川枫。<br/>在很久很久以前，有一座山，山上有座庙，庙里有个老和尚正在讲故事，讲的是什么故事呢？讲的是，在很久很久以前，有一座山，山上有座庙，庙里有个老和尚正在给小和尚讲故事，讲的是什么故事呢？讲的是，在很久以前，有一座山，山上座庙……',
+        },{
+        	title:'川枫的初恋',
+        	subtitle:'在那个樱花飘落的季节，遇见了美丽的你',
+        	time:'21/3/2017',
+        	author:'川枫·流',
+        	content:'那飘落的不是花瓣，是川枫的点点爱意。',
+        },{
+        	title:'凶恶的教练',
+        	subtitle:'明天开始，每天长跑2公里，100个俯卧撑，100个引体向上……',
+        	time:'18/7/2017',
+        	author:'川枫·流',
+        	content:'',
+        },{
+        	title:'川枫的梦想',
+        	subtitle:'梦想是那么的遥不可及，却又触手可及，可是我的梦在哪里？',
+        	time:'3/9/2017',
+        	author:'川枫·流',
+        	content:'',
+        }]
     },
     mounted(){
       
@@ -101,3 +210,6 @@ new Vue({
         }
     }
 })
+
+
+

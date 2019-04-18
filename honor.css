@@ -16,6 +16,12 @@ a{
     text-decoration: none;
     color: #eee;
 }
+h1,h2,h3,h4{
+    margin:0;
+}
+p{
+    margin:0;
+}
 .all_container{
     width: 100%;
     height: 100%;
@@ -180,7 +186,7 @@ header{
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    padding-top: 20px;
+    border-top: 1px solid #a1a1a1;
     justify-content: space-between;
 }
 .sec-content>div{
@@ -316,12 +322,21 @@ ul.news-menu>li>a:hover{
 }
 div.news-list{
     width: 90%;
-    height: 700px;
+    height: 730px;
     position: absolute;
     left: 5%;
     top: 60px;
-    /* border: 1px solid #eee; */
     margin: 0;
+    overflow-y: scroll;
+    /*隐藏滚动条 IE10/FireFox*/
+    -ms-overflow-style: none; 
+    overflow: -moz-scrollbars-none; 
+    
+}
+/*隐藏滚动条 safari/chrome*/
+div.news-list::-webkit-scrollbar {display:none} 
+div.news-list>div:last-child{
+    margin-bottom:0;
 }
 .list-item{
     width: 100%;
@@ -331,19 +346,134 @@ div.news-list{
     display: flex;
     flex-flow: row nowrap;
 }
+.artical-item{
+    min-height: 100px;
+    padding:5px 20px 10px ;
+    background: #fff;
+    margin-bottom: 5px; 
+}
 .list-lt{
     width: 100px;
     height: 100px;
     background: #222;
-   
+    position: relative;
+    text-align: center;
+    font-family: "Comic Sans MS";
+}
+.list-lt-day{
+    width:60px;
+    height:60px;
+    font-size: 40px;
+    font-weight: bold;
+    display: block;
+    color:#aaa;
+    line-height: 80px;
+    margin-left: 15px;
+}
+.list-lt-month{
+    color: #fff;
+    display: inline-block;
+    color: gold;
+    font-size:14px;
+    font-weight:bold;
+    margin-right: -20px;
+    margin-top: 5px;
 }
 .list-gt{
     /* width: 600px; */
     width: 90%;
     height: 100px;
     background: #eee;
+    position: relative;
+}
+.list-gt-ctn{
+    padding:15px 10px;
+    margin-top: 5px;
+    max-width: : 700px;
+    max-height: 50px;
+    font-family: "Comic Sans MS";
+}
+.list-gt-ctn span{
+    display: inline-block;
+    max-width: 700px;
+    max-height: 70px;
+    font-size: 14px;
+    color: #555;
+    overflow: hidden;
+    text-indent: 20px;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.list-gt-ctn span:first-letter{
+    font-size:20px;
+    font-weight:bold;
+    font-family:黑体;
+}
+.list-gt-weather{
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    /*border-radius: 50%;*/
+}
+.weather{
+   display: inline-block;
+   width: 40px;
+   height: 40px;
+   line-height: 40px;
+   font-size: 20px;
+   text-align: center;
+   border-radius: 50%;
 }
 
+.summer{
+    box-shadow: 0 0 10px 2px #f40;
+    color: #fa0;
+}
+.wind{
+    box-shadow: 0 0 10px 2px #af0;
+    color: #af0;
+}
+.shade{
+    box-shadow: 0 0 10px 2px #666;
+    color: #666;
+}
+.cloud{
+    box-shadow: 0 0 10px 2px #fa0;
+    color: #f40;
+}
+.rain{
+    box-shadow: 0 0 10px 2px #0af;
+    color: #0af;
+}
+
+.list-gt-year{
+    position: absolute;
+    bottom: 4px;
+    right: 18px;
+    color: #666;
+    font-size: 14px;
+    font-family: "Comic Sans MS";
+}
+.artical-title{
+    width: 100%;
+    padding:10px 0 20px;
+    border-bottom: 2px solid #eee;
+}
+.artical-ctn{
+    width: 100%;
+    margin-top: 30px;
+    color: #666;
+    text-indent: 20px;
+}
+.artical-foot{
+    width: 100%;
+    color: #666;
+    padding: 10px 0;
+    text-align: right;
+    font-family: "Comic Sans MS";
+}
 div.page-btn{
     width: 90%;
     position: absolute;
