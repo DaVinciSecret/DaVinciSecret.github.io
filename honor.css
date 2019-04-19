@@ -352,6 +352,14 @@ div.news-list>div:last-child{
     background: #fff;
     margin-bottom: 5px; 
 }
+.technical-item{
+    width: 100%;
+    min-height: 200px;
+    background: #fff;
+    padding: 5px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
 .list-lt{
     width: 100px;
     height: 100px;
@@ -425,6 +433,10 @@ div.news-list>div:last-child{
    font-size: 20px;
    text-align: center;
    border-radius: 50%;
+   transition: all 0.5s;
+}
+.weather:hover{
+    box-shadow: 0 0 20px 4px;
 }
 
 .summer{
@@ -469,7 +481,8 @@ div.news-list>div:last-child{
 }
 .artical-ctn{
     width: 100%;
-    margin-top: 30px;
+    margin-top: 25px;
+    margin-bottom:10px;
     color: #666;
     text-indent: 20px;
 }
@@ -480,6 +493,60 @@ div.news-list>div:last-child{
     text-align: right;
     font-family: "Comic Sans MS";
 }
+.technical-card{
+    width: 200px;
+    height: 200px;
+    background: #fff;
+    border-radius: 4px;
+    border:1px solid #ccc;
+    /*box-shadow: 0 0 5px 2px #aaa;*/
+    margin:5px;
+    transition: all .5s;
+    float: left;
+}
+.technical-card:hover{
+      box-shadow: 0 0 5px 2px #aaa;
+}
+.tag{
+    height: 30px;
+    line-height: 30px;
+}
+.little-tag{
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    margin:0 2px;
+    border-radius: 4px;
+    font-size: 12px;
+    /*border:1px solid #eee;*/
+    padding: 0 4px;
+    color: #fff;
+}
+.tag-clr1{
+    background:#FF3; 
+}
+.tag-clr2{
+    background:#99F; 
+}
+.tag-clr3{
+    background:#B088FF; 
+}
+.tag-clr4{
+    background:#00CED1; 
+}
+.tag-clr5{
+    background:#00CED1; 
+}
+.tag-clr6{
+    background:#66ff66; 
+}
+.tag-clr7{
+    background:#FF3333; 
+}
+.tag-clr8{
+    background:#FF3Eff; 
+}
+
 div.page-btn{
     width: 90%;
     position: absolute;
@@ -526,6 +593,18 @@ ul.news-menu::after{
     background: #333;
     position: relative;
 }
+.card-container{
+    width: 100%;
+    height: 100%;
+    background: #333;
+    position: relative;
+    overflow-y: scroll;
+    /*隐藏滚动条 IE10/FireFox*/
+    -ms-overflow-style: none; 
+    overflow: -moz-scrollbars-none; 
+}
+/*隐藏滚动条 safari/chrome*/
+div.card-container::-webkit-scrollbar {display:none} 
 .content-gt>div.card-item:nth-child(2){
     margin-top: 0px;
 }
@@ -533,6 +612,7 @@ ul.news-menu::after{
     width: 96%;
     height: 45px;
     position: absolute;
+    text-align: center;
     left: 2%;
     top: -45px;
     line-height: 45px;
@@ -550,13 +630,14 @@ ul.news-menu::after{
     height: 300px;
     background: #fff;
     font-family: '微软雅黑';
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .card-panel{
     width: 100%;
     height: 100%;
     display: flex;
+    margin-bottom: 10px;
     flex-flow: column;
     justify-content: space-between;
 }
@@ -566,22 +647,29 @@ ul.news-menu::after{
 }
 .card-title{
     height: 40px;
+    background: #fff;
     line-height: 40px;
     text-indent: 20px;
+    font-size: 12px;
     border-bottom: 1px solid #aaa;
 }
 .card-img{
     height: 220px;
-    display: inline-block;
     background: #555;
+    display: inline-block;
+}
+.card-img img{
+    width: 100%;
+    height: 100%;
 }
 .card-foot{
-    border-top: 1px solid #aaa;
     height: 40px;
     display: flex;
+    background: #fff;
+    align-items: center;
     flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center;
+ 
 }
 .card-foot a{
     color: #222;

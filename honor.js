@@ -37,7 +37,7 @@
     setInterval(draw,1000/30);
 })();
 
-
+Vue.prototype.i18n = i18n;
 new Vue({
     el:'.content-lt-top',
     data:{
@@ -48,8 +48,7 @@ new Vue({
             'active':false
         },
         num:1,
-        newlist:[],
-        
+        newlist:[]
     },
     mounted() {
         this.timer = setInterval(this.swipeNext,2000);
@@ -182,7 +181,7 @@ new Vue({
         	subtitle:'这是一个很久很久以前的故事……',
         	time:'6/8/2017',
         	author:'川枫·流',
-        	content:'今天川枫遇见了一位方丈，方丈为川枫讲了一个故事，深深的启发着川枫。<br/>在很久很久以前，有一座山，山上有座庙，庙里有个老和尚正在讲故事，讲的是什么故事呢？讲的是，在很久很久以前，有一座山，山上有座庙，庙里有个老和尚正在给小和尚讲故事，讲的是什么故事呢？讲的是，在很久以前，有一座山，山上座庙……',
+        	content:'今天川枫遇见了一位方丈，方丈为川枫讲了一个故事，深深的启发着川枫。<br/> &nbsp;&nbsp;&nbsp;&nbsp;在很久很久以前，有一座山，山上有座庙，庙里有个老和尚正在讲故事，讲的是什么故事呢？讲的是，在很久很久以前，有一座山，山上有座庙，庙里有个老和尚正在给小和尚讲故事，讲的是什么故事呢？讲的是，在很久以前，有一座山，山上座庙……',
         },{
         	title:'川枫的初恋',
         	subtitle:'在那个樱花飘落的季节，遇见了美丽的你',
@@ -194,7 +193,7 @@ new Vue({
         	subtitle:'明天开始，每天长跑2公里，100个俯卧撑，100个引体向上……',
         	time:'18/7/2017',
         	author:'川枫·流',
-        	content:'',
+        	content:'Do you want strong body ? Do you want qucikly ? Do you want strong Musle ? If you want, let you do this that I say.',
         },{
         	title:'川枫的梦想',
         	subtitle:'梦想是那么的遥不可及，却又触手可及，可是我的梦在哪里？',
@@ -219,5 +218,32 @@ new Vue({
     }
 })
 
+new Vue({
+	el:'.content-gt',
+	data:{
+	  	cardDate:[{
+	  			"title":"绿茶",
+	        	"imgSrc":'tea/cha5.jpg'
+	        },{
+	        	"title":"苏州碧螺春",
+	        	"imgSrc":'tea/cha2.jpg'
+	        },{
+	        	"title":"大红袍",
+	        	"imgSrc":'tea/cha7.jpg'
+	        },{
+	        	"title":"紫阳毛尖",
+	        	"imgSrc":'tea/cha4.jpg'
+	        },{
+	        	"title":"茉莉花茶",
+	        	"imgSrc":'tea/cha3.jpg'
+	        },{
+	        	"title":"西湖龙井",
+	        	"imgSrc":'tea/cha6.jpg'
+	        }],
+	},
+	methods:{
+
+	}
+})
 
 

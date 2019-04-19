@@ -71,10 +71,10 @@
                         <!-- 新闻列表 -->
                         <div class="content-news">
                             <ul class="news-menu" @click.prevent="newsClick($event)">
-                                <li><a data-id="list1" href="" @click.prevent="">日常</a></li>
-                                <li><a data-id="list2" href="" @click.prevent="">随笔</a></li>
-                                <li><a data-id="list3" href="" @click.prevent="">知识</a></li>
-                                <li><a data-id="list4" href="" @click.prevent="">其他</a></li>
+                                <li><a data-id="list1" href="" @click.prevent="" v-text="i18n.project_term_daily_label"></a></li>
+                                <li><a data-id="list2" href="" @click.prevent="" v-text="i18n.project_term_sketch_label">随笔</a></li>
+                                <li><a data-id="list3" href="" @click.prevent="" v-text="i18n.project_term_technique_label">技术</a></li>
+                                <li><a data-id="list4" href="" @click.prevent="" v-text="i18n.project_term_other_label">其他</a></li>
                             </ul>
 							<!-- 日常 -->
                             <div id="list1" :style="{display: ('list1' == listitem)?'block':'none'}" class="news-list">
@@ -105,39 +105,38 @@
                                     	 <p style="font-size: 14px;font-family:Comic Sans MS;color: #666;" v-text="item.subtitle"></p>
                                     </div>
                                     <div class="artical-ctn">
-                                    	<span v-text="item.content"></span>
+                                    	<span v-html="item.content"></span>
                                     </div>
                                     <div class="artical-foot">
                                     	<span v-text="'Time：'+item.time"></span>
                                     </div>
                                 </div>
                             </div>
-							<!-- 知识 -->
+							<!-- 技术 -->
                             <div id="list3" :style="{display: ('list3' == listitem)?'block':'none'}" class="news-list">
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
+                                <div class="technical-item">
+                                    <div class="technical-card" style="font-size: 30px; text-align: center; width: 300px;height: 300px;">
+                                    	<p><span style="font-size:100px;color: #0a0;font-weight: bold;">V</span>ue</p>
+                                    	<p><span style="font-size: 20px;">vue 2.5.x</span></p>
+                                    	<p class="tag"><span class="little-tag tag-clr3" >axios</span><span class="little-tag tag-clr4">v-Router</span><span class="little-tag tag-clr6">v-Vuex</span></p>
+                                    </div>
+                                    <div class="technical-card" style="font-size: 30px; text-align: center; height: 350px; width: 240px;">
+                                    	<p><span style="font-size:100px;color: #a00;font-weight: bold;">A</span>ngular</p>
+                                    	<p><span style="font-size: 20px;">angular 1.0.x</span></p>
+                                    	<p class="tag"><span class="little-tag tag-clr7">grunt</span><span class="little-tag"></span>
+                                    </div>
+                                    <div class="technical-card" style="font-size: 30px; text-align: center;width: 300px;">
+                                    	<p><span style="font-size:100px;color: #0aa;font-weight: bold;">N</span>ode</p>
+                                    	<p class="tag"><span class="little-tag  tag-clr5">webpack</span><span class="little-tag  tag-clr4">ES6</span><span class="little-tag tag-clr2">npm</span></p>
+                                    </div>
+                                    <div class="technical-card" style="font-size: 30px; text-align: center;">
+                                    	<p><span style="font-size:100px;color: #a0a;font-weight: bold;">G</span>it</p>
+                                    	<p class="tag"><span class="little-tag tag-clr8">SVN</span></p>
+                                    </div>
                                 </div>
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                       <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                       <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
+	                            <div class="technical-item">
+	                                
+	                            </div>
                             </div>
 							<!-- 其他 -->
                             <div id="list4" :style="{display: ('list4' == listitem)?'block':'none'}"  class="news-list">
@@ -178,56 +177,22 @@
                 <div class="content-gt">
                     <!-- 标题 -->
                     <div class="gt-title">
-                        <h3>Other</h3>
+                        <span style="font-size: 20px;color: #fff">恬淡·闲适·宁静</span>
                     </div>
-                    <div class="card-item">
-                        <div class="card-panel">
-                            <div class="card-title">title</div>
+                    <div class="card-container">
+                    	 <div class="card-item">
+                        <div class="card-panel" v-for="item in cardDate">
+                            <div class="card-title" v-text="item.title"></div>
                             <div class="card-img">
-                                <img src="" alt="">
+                                <img :src="item.imgSrc" alt="">
                             </div>
                             <div class="card-foot">
-                                <a href="">hipe</a>
-                                <a href="">like</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-item">
-                        <div class="card-panel">
-                            <div class="card-title">title</div>
-                            <div class="card-img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="card-foot">
-                                <a href="">hipe</a>
-                                <a href="">like</a>
+                                <a href="" style="font-size: 12px;">生活就是一杯沁人心脾的青茗……</a>
+                                <a href=""></a>
                             </div>
                         </div>
                     </div>
-                    <div class="card-item">
-                        <div class="card-panel">
-                            <div class="card-title">title</div>
-                            <div class="card-img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="card-foot">
-                                <a href="">hipe</a>
-                                <a href="">like</a>
-                            </div>
-                        </div>
-                    </div> 
-                       <div class="card-item">
-                        <div class="card-panel">
-                            <div class="card-title">title</div>
-                            <div class="card-img">
-                                <img src="" alt="">
-                            </div>
-                            <div class="card-foot">
-                                <a href="">hipe</a>
-                                <a href="">like</a>
-                            </div>
-                        </div>
-                    </div>                  
+                    </div>
                 </div>
             </section>
 
@@ -253,5 +218,6 @@
     </div>
 </body>
 <script src="vue.js"></script>
+<script src="i18n.js"></script>
 <script src="honor.js"></script>
 </html>
