@@ -209,7 +209,7 @@ new Vue({
         }],
         technicalData:[{
         	title:'原型和原型链',
-        	subtitle:'程序如同艺术 ，源于生活而又高于生活…',
+        	subtitle:'程序如同艺术 ，源于生活而又高于生活…(扯淡！！)',
         	time:'2/16/2017',
         	author:'川枫·流',
         	content:`<div class="preview"><div class="preview__inner-1"><div class="preview__inner-2 markdown_views prism-atom-one-dark" style="padding: 10px 20px 20px;"><div class="cl-preview-section">
