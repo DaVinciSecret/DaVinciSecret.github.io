@@ -126,7 +126,7 @@
                                     	<p class="tag"><span class="little-tag tag-clr7">grunt</span><span class="little-tag"></span>
                                     </div>
                                     <div class="technical-card" style="font-size: 30px; text-align: center;width: 300px;">
-                                    	<p><span style="font-size:100px;color: #0aa;font-weight: bold;">N</span>ode</p>
+                                    	<p><span style="font-size:100px;color: #0aa;font-weight: bold;">N</span>ode.js</p>
                                     	<p class="tag"><span class="little-tag  tag-clr5">webpack</span><span class="little-tag  tag-clr4">ES6</span><span class="little-tag tag-clr2">npm</span></p>
                                     </div>
                                     <div class="technical-card" style="font-size: 30px; text-align: center;">
@@ -135,7 +135,19 @@
                                     </div>
                                 </div>
 	                            <div class="technical-item">
-	                                
+	                                <div class="artical-item" v-for="item in technicalData">
+	                                    <div class="artical-title">
+	                                    	 <h2 style="margin:8px 0;display: inline-block;" v-text="item.title"></h2> 
+	                                    	 <span style="margin-left:20px;font-size: 14px;color: #555" v-text="item.author"></span>
+	                                    	 <p style="font-size: 14px;font-family:Comic Sans MS;color: #666;" v-text="item.subtitle"></p>
+	                                    </div>
+	                                    <div class="artical-ctn">
+	                                    	<span v-html="item.content"></span>
+	                                    </div>
+	                                    <div class="artical-foot">
+	                                    	<span style="padding-right: 20px;" v-text="'Time：'+item.time"></span>
+	                                    </div>
+                                	</div>
 	                            </div>
                             </div>
 							<!-- 其他 -->
