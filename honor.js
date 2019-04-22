@@ -38,6 +38,7 @@
 })();
 
 Vue.prototype.i18n = i18n;
+Vue.prototype.echarts = echarts;
 new Vue({
     el:'.content-lt-top',
     data:{
@@ -295,9 +296,14 @@ new Vue({
 					},{},{}]
     },
     mounted(){
-      
+      	this.drawMap();
     },
     methods:{
+    	drawMap:function(){
+    		var myChart = this.echarts.init(document.querySelector('#myCharts'))
+	        // 绘制图表
+	        myChart.setOption(airOption);
+	    },
         newsClick:function(e){
             var target = e.target;
             console.log(target)

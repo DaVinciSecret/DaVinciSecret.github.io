@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="honor.css">
     <title>Document</title>
+    <script src="lib/echarts.js"></script>
+   	<script src="lib/china.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=DzwjAGjkNClPbkgLyi5wPqU3Sx5cLUaM
+"></script>
+    <script type="text/javascript" src="extension/bmap.js"></script>
 </head>
 <body>
     <div class="all_container">
@@ -115,17 +120,17 @@
 							<!-- 技术 -->
                             <div id="list3" :style="{display: ('list3' == listitem)?'block':'none'}" class="news-list">
                                 <div class="technical-item">
-                                    <div class="technical-card" style="font-size: 30px; text-align: center; width: 300px;height: 300px;">
+                                    <div class="technical-card" style="font-size: 30px; text-align: center; width: 300px;height: 300px; background-image:linear-gradient(to bottom, #fff,#0a0);">
                                     	<p><span style="font-size:100px;color: #0a0;font-weight: bold;">V</span>ue</p>
                                     	<p><span style="font-size: 20px;">vue 2.5.x</span></p>
                                     	<p class="tag"><span class="little-tag tag-clr3" >axios</span><span class="little-tag tag-clr4">v-Router</span><span class="little-tag tag-clr6">v-Vuex</span></p>
                                     </div>
-                                    <div class="technical-card" style="font-size: 30px; text-align: center; height: 350px; width: 240px;">
+                                    <div class="technical-card" style="font-size: 30px; text-align: center; height: 350px; width: 240px;background-image:linear-gradient(to top, #fff,#a00);">
                                     	<p><span style="font-size:100px;color: #a00;font-weight: bold;">A</span>ngular</p>
                                     	<p><span style="font-size: 20px;">angular 1.0.x</span></p>
                                     	<p class="tag"><span class="little-tag tag-clr7">grunt</span><span class="little-tag"></span>
                                     </div>
-                                    <div class="technical-card" style="font-size: 30px; text-align: center;width: 300px;">
+                                    <div class="technical-card" style="font-size: 30px; text-align: center;width: 300px;background-image:linear-gradient(-45deg, #fff 30%,#0aa);">
                                     	<p><span style="font-size:100px;color: #0aa;font-weight: bold;">N</span>ode.js</p>
                                     	<p class="tag"><span class="little-tag  tag-clr5">webpack</span><span class="little-tag  tag-clr4">ES6</span><span class="little-tag tag-clr2">npm</span></p>
                                     </div>
@@ -152,17 +157,8 @@
                             </div>
 							<!-- 其他 -->
                             <div id="list4" :style="{display: ('list4' == listitem)?'block':'none'}"  class="news-list">
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="list-lt"></div>
-                                    <div class="list-gt"></div>
+                                <div class="charts-item">
+                                	<div id="myCharts"></div>
                                 </div>
                             </div>
                             <!-- 翻页 -->
@@ -229,7 +225,9 @@
         </div>
     </div>
 </body>
+<script src="airMap.js"></script>
 <script src="vue.js"></script>
 <script src="i18n.js"></script>
 <script src="honor.js"></script>
+
 </html>

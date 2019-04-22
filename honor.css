@@ -355,10 +355,19 @@ div.news-list>div:last-child{
 .technical-item{
     width: 100%;
     min-height: 200px;
-    background: #fff;
-    padding: 5px;
+    /*padding: 5px;*/
     overflow: hidden;
     margin-bottom: 20px;
+    background-image:linear-gradient(45deg, #fff 5%,#000 40%);
+    /*background-image: linear-gradient(left to bottom, #000, #fff); !important;*/
+}
+.charts-item{
+    width: 100%;
+    min-height: 400px;
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
 }
 .list-lt{
     width: 100px;
@@ -742,4 +751,16 @@ footer{
 }
 .preview img{
     max-width: 100%;
+}
+
+
+
+/*图表*/
+#myCharts{
+    width: 1000px;
+    height: 500px;
+    margin:0 auto;
+}
+.BMap_cpyCtrl,.anchorBL{
+    display: none;
 }
