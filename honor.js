@@ -36,7 +36,6 @@
     }
     setInterval(draw,1000/30);
 })();
-
 Vue.prototype.i18n = i18n;
 Vue.prototype.echarts = echarts;
 new Vue({
@@ -44,7 +43,7 @@ new Vue({
     data:{
         n:1,
         timer:null,
-        imglist:['poster/banner1.jpg','poster/banner2.jpg','poster/banner3.jpg','poster/banner4.jpg'],
+        imglist:['data/asset/image/poster/banner1.jpg','data/asset/image/poster/banner2.jpg','data/asset/image/poster/banner3.jpg','data/asset/image/poster/banner4.jpg'],
         activeObj:{
             'active':false
         },
@@ -292,17 +291,160 @@ new Vue({
 					<img src="https://img-blog.csdn.net/20181014215222527?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzMjcxODI3/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="在这里插入图片描述"><br>
 					大图是重点，可以看出，像这种，一个原型对象，作为另一个实例的原型，而原型对象，又是另一个原型的实例，通过__proto__属性链接，最终形成的这种层层递进的链式结构，也就是原型链的原理。</p>
 					</div></div> <div class="gutter" style="left: 0px;"><!----></div></div> <!----></div>`},{
-
+				title:'js运行机制',
+				subtitle:'不要被事物的表面现象所迷惑……',
+				time:'2/16/2017',
+				author:'川枫·流',
+				content:`<div class="preview"><div class="preview__inner-1"><div class="preview__inner-2 markdown_views prism-atom-one-dark" style="padding: 10px 20px 42px;"><div class="cl-preview-section"><p>快有一个月没写博客了，真是造孽啊。双十一也过去了，然鹅什么都没买。虽然双十一结束了，但是我却从此就要摆脱之前的单身生活，转而开始新的单身生活。最近这段时间一直在回顾反思，并学习一些新的东西。对于js的运行机制，也有了更深入的理解，之前写过一篇文章，但是那篇文章对于js的底层原理并没有深入的探讨。<br>
+					通过一段时间的学习，我重新去深入的了解底层的运行机制，在此作以分享。<br>
+					先上图：<br>
+					</div><div class="cl-preview-section"><p>精髓之图！！！<br>
+					<img src="https://img-blog.csdnimg.cn/20181118193444935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzMjcxODI3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
+					这张图看着“比较”复杂，我会对其中的部分进行详细的讲解，<br>
+					我会从以下几个部分对这张图的内容进行解释。<br>
+					(1)进程与线程<br>
+					(2)多进程的浏览器<br>
+					(3)为什么js单线程<br>
+					(4)同步与异步<br>
+					(5)事件列表，事件队列，ESC执行栈，EventLoop。<br>
+					(6)其他部分<br>
+					(7)Promise中js处理机制的进阶宏任务与微任务。<br>
+					</div><div class="cl-preview-section"><p>对于这篇文章目前的规划就是这些。接下来就来聊聊这些。<br>
+					<h3>(1)进程与线程</h3><br>
+					为什么要说这个，对于大多数人也许了解什么是进程什么是线程，即便如此还是有必要说一说的，并且很多人对于浏览器是类型的却并不了解，所以有必要说一下。<br>
+					进程是内存分配的最小单位<br>
+					线程是cpu调度的最小单位<br>
+					抽象派：<br>
+					进程就是一个加工厂，每个加工厂里的工人相当于线程，工人们相互协作完成任务，工厂内部的资源大家共同利用。工厂与工厂之间互相独立。<br>
+					每个工厂里，都至少有一个工人。这就是进程与线程的原理。不做深究。<br>
+					<h3>(2)多进程的浏览器</h3><br>
+					浏览器是多进程的，可以通过查看浏览器的任务管理器了解
+					</div><div class="cl-preview-section"><p>浏览器是多进程的，并且每打开一个新的tab页，就会增加一个进程。<br>
+					并且相同的tab页的进程会被合并，这些可以自行验证。<br>
+					浏览的对进程主要有以下几个：</p>
+					</div><div class="cl-preview-section"><ul>
+					<li style:"text-decoration:underline;">Browser进程</li>
+					<li style:"text-decoration:underline;">render进程</li>
+					<li style:"text-decoration:underline;">GPU进程</li>
+					<li style:"text-decoration:underline;">第三方插件进程</li>
+					<li style:"text-decoration:underline;">以及每个tab页都是一个进程</li>
+					</ul>
+					</div><div class="cl-preview-section"><p>(3)js单线程<br>
+					我们所接触的每个页面是一个进程，而参与处理这个页面的进程主要是由render进程完成的，render进程内部又是多线程的，主要分为以下几个线程</p>
+					</div><div class="cl-preview-section"><ul>
+					<li style:"font-weight:bold;font-size:18px;">异步的http请求线程；</li>
+					<li style:"font-weight:bold;font-size:18px;">事件触发线程</li>
+					<li style:"font-weight:bold;font-size:18px;">定时器触发线程</li>
+					<li style:"font-weight:bold;font-size:18px;">GUI渲染线程</li>
+					<li style:"font-weight:bold;font-size:18px;">js引擎线程</li>
+					</ul>
+					</div><div class="cl-preview-section"><p>从上面可以看出来，浏览器只给了每个页面处理js的一条线程，也就是js引擎线程，所以js是单线程的，这大概众所周知了，可是为什么js是单线程的，不见得重做周知，浏览器是多进程的，对于每个页面的处理其实也是多线程的，但是对于js的处理，浏览器就给了一条线程。为什么呢，了解一样技术首先得从它的需求入手，不是说什么什么也可以什么什么，事情并没有想的那么简单。对于js也不例外，js的设计初衷，是为了页面交互，为了给浏览网页的用户带来更良好的交互体验，试想，如果js是多线程的，在同一时刻用户操作网页中的某个节点，但同时另一个线程要删除这个节点，浏览器该当如何，既不能影响用户正常体验，又要删除，并且谁能知道这个节点操作后，是否还会有后续操作。会带来一系列的问题。所以作者，反其道而行之，不如化简为一，只通过一条线程去处理。这就是为什么js最初被设计成单线程的原因。当然省了事，就会带来别的问题。<br>
+					<h3>(4)同步与异步<br></h3>
+					同步通俗的说就是一个时间段只能干一件事，每个任务都必须在前一个任务执行结束后，在执行，就如同排队一样，来的早的先办事，并且前一个任务不论耗时多久，后面的任务都得等，直到前面的任务结束。这样就会造成一些问题，例如：如果一个页面在执行某个任务，但是因此耗费了很长的执行时间，导致的问题就是，用户不能进行别的操作，一直等待页面的响应，这就会产生一种页面卡死的现象，会带来极差的用户体验。所以有了异步的产生。<br>
+					异步是指：通俗的说就是同时干多件事，不必等待之前的任务执行结束，后面的任务也可以去执行，这样就可以解决同步所造成的资源浪费，并且对于js来说，也就能更有效的利用cpu的资源，js本质是直接耗费cpu资源的，这也是解释性语言的特点，直接通过解释器，再通过解码器，有的甚至不通过解码器例如V8引擎，就直接转换为二进制，供cpu进行运算。<br>
+					但是js中是如何实现异步的呢，按理来说js不是单线程吗？我们要明确一点js是单线程，本质上并没有改变。只是它实现异步的方式有它的不同之处。<br>
+					<h3>(5)事件列表，事件队列，ESC执行栈，EventLoop。</h3><br>
+					接下来就是重头戏了。这里开始涉及到js的运行机制问题，所以敲黑板！！！<br>
+					ESC执行栈：Execution Context即管理执行期上下文，是一个栈结构，所有的同步任务均由他管理执行，并且同步任务均属于js主线程上的任务，由ESC执行栈完成调用，所有的其他的异步任务基本上存在于事件列表中，事件列表与事件队列并不相同，异步任务主要分两种，一种是定时器异步任务，另一种是回调任务，这两种任务分别又不同的线程控制，定时器类型的异步任务是由定时器触发线程管理，异步回调任务是由事件处理线程进行管理的，接下来说说这些任务的运作方式。<br>
+					：事件列表，存放所有的异步任务，在事件列表中挂起执行，<br>
+					：事件队列，异步任务执行得到响应后，会将对应的完成的异步任务事件加至事件队列中，之后被ESC执行栈调用。<br>
+					整个的这一过程就是EventLoop的机制。<br>
+					对于主线程上的任务，他们会进入ESC执行栈，受执行栈直接控制，然后对应的异步任务，会被对应的线程进行管理，回调类型的异步任务会进入事件列表，此类任务会被挂起执行，等待I/O返回结果，结果返回后，会被推入事件列表，等待ESC执行栈中的任务执行完毕，然后进行EventLoop（事件循环），会到事件队列中的头部获取等待执行的任务。对于定时器类型的异步任务，直接由定时器事件触发线程管理，定时到时后就会将任务直接推入事件队列之中，如此循环往复，只要ESC执行栈中的任务结束，也就是主线程上的任务结束，就会进行事件循环，检查事件列表，异步任务，通过各自线程的管理进入事件列表，在没有主线程任务时被ESC获取，这就是最初的js执行机制。<br>
+					对于执行栈部分的js代码解析过程，在本章节不重点讨论。但是大概说一下，因为涉及到的知识点比较多如词法作用域、scope、scope chain、prototype、prototype chain、VO、AO、以及Context（执行期上下文）、解析规则等等的问题，可以重新开几个章节讨论了,所以我只提几个点，<br>
+					像之前说的任务进入ESC执行栈中执行，说白了就是function里的代码在ESC执行栈里执行，但是在进入ESC执行栈执行之前还会有好多的事情发生，在函数创建的时候，就会发生一件事，即函数的作用域在它定义时就决定了，函数内部的属性[[scope]]会保存所有函数外部变量到其中，就是所有外部变量对象的层级连，然后在函数进入ESC时函数被激活，别以为就这么简单，在激活的时候，也会发生很多事，创建作用域、创建活动对象AO，并且初始化AO，加入形参，函数声明，变量声明，然后会就将AO对象压入自身作用域链的顶端，然后才开始操作函数，函数执行的时候就是对AO对象进行修改，需要什么先在自己的AO上找，找不到就沿着作用链向上找。最后函数执行结束，从ESC中弹出，被释放。大致就是如此。</p>
+					</div><div class="cl-preview-section"><hr>
+					进阶：
+					</div><div class="cl-preview-section"><p>以上所讲的js运行机制，很多人已经了解，当然很多人应该也不了解，当初我理解到此处的时候已经觉得上了一个层面，可是后来因为一些编程中遇到的例子，发现并不能解释的通，就很奇怪，于是乎又是一对搜索，不过说实话，搜索能给的帮助太少了，多数文章千篇一律，一个抄一个，最后还是在基佬俱乐部github上得到了答案。</p>
+					</div><div class="cl-preview-section"><p>&nbsp;&nbsp;&nbsp;之前的运行机制，在我们遇到一般的程序可以解释的通，并且之前的运行机制也并没有错，只是它还不够完善。因为Promise的出现，它将js运行机制又划分了另一个层面。可以尝试一下图片中的例子，我都给到了，可以自己试一试。Promise将js底层的任务划分的更加明确，即微任务（microTask）和宏任务（macroTask）的概念<br>
+					&nbsp;&nbsp;&nbsp;<strong>宏任务</strong>：就是ESC执行执行栈当中的任务，既包含当前的js主程序代码，定时器的异步触发任务等，因为最终都会进入ESC执行栈，他们是从事件队列中获取的。<br>
+					&nbsp;&nbsp;&nbsp;<strong>微任务</strong>：是更为细化的一种任务，它的执行比setTimeOut还要快，setTimeOut最小时间为4ms，即便设为0，这是最小的设定。例如Promise、Promise.nextTick这些是属于微任务。</p>
+					</div><div class="cl-preview-section"><p>那他们是怎么运行的呢？</p>
+					</div><div class="cl-preview-section"><p>&nbsp;&nbsp;&nbsp;宏任务依然是在ESC执行栈中执行，与之前的同步任务，还有异步任务的运作方式是一样的，并且事件的循环也是一样的，只是在每次重新向ESC执行栈中添加新任务时，会加一层操作，就是检查微任务队列。在代码执行过程中，所有遇到的微任务microTask，也会进入一个队列中，这个微任务队列直接由js引擎线程控制。每次ESC执行栈中的一个宏任务执行结束，就会去检查微任务队列，寻找本轮是否还有微任务没有执行，然后执行微任务。只有本轮的宏任务和微任务都执行结束，然后开始检查渲染，此时由GUI线程接管渲染。渲染完毕后，就又会由JS引擎接管，开始下一轮的宏任务。</p>
+					</div><div class="cl-preview-section"><p>&nbsp;&nbsp;&nbsp;问题到了此处，已经又是一个层面了，是不是觉得我逼话连篇，嘿嘿嘿，但是，理解到此处，却是豁然开朗的感觉，我也懒的敲代码示例了，理解原理，并且总结画出那张图花了不少时间，并且也把代码示例附在了图上，可以自己尝试。唉…，底层的东西太多，太深了，我还是知道的少。继续吧，不要松懈。</p>
+					</div><div class="cl-preview-section"><p>哦对了，图片里还涉及到一些，其他的知识，有兴趣的可以自行了解，本篇就先说到这里。有些点说的比较笼统，后续应该还会有补充。</p>
+					</div></div> <div class="gutter" style="left: 0px;"><!----></div></div> <!----></div>`
 					},{},{}]
     },
     mounted(){
       	this.drawMap();
+      	this.drawSystemMap();
     },
     methods:{
     	drawMap:function(){
-    		var myChart = this.echarts.init(document.querySelector('#myCharts'))
+    		var myChart = this.echarts.init(document.querySelector('#myCharts'));
 	        // 绘制图表
 	        myChart.setOption(airOption);
+	    },
+	    drawSystemMap:function(){
+	    	var myChart2 = this.echarts.init(document.querySelector('#myCharts2'))
+	    	myChart2.showLoading();
+			$.get('data/asset/data/les-miserables.gexf', function (xml) {
+			    myChart2.hideLoading();
+
+			    var graph = echarts.dataTool.gexf.parse(xml);
+			    var categories = [];
+			    for (var i = 0; i < 9; i++) {
+			        categories[i] = {
+			            name: '类目' + i
+			        };
+			    }
+			    graph.nodes.forEach(function (node) {
+			        node.itemStyle = null;
+			        node.value = node.symbolSize;
+			        node.symbolSize /= 1.5;
+			        node.label = {
+			            normal: {
+			                show: node.symbolSize > 10
+			            }
+			        };
+			        node.category = node.attributes.modularity_class;
+			    });
+			    option = {
+			        title: {
+			            text: 'Les Miserables',
+			            subtext: 'Circular layout',
+			            top: 'bottom',
+			            left: 'right'
+			        },
+			        tooltip: {},
+			        legend: [{
+			            // selectedMode: 'single',
+			            data: categories.map(function (a) {
+			                return a.name;
+			            })
+			        }],
+			        animationDurationUpdate: 1500,
+			        animationEasingUpdate: 'quinticInOut',
+			        series : [
+			            {
+			                name: 'Les Miserables',
+			                type: 'graph',
+			                layout: 'circular',
+			                circular: {
+			                    rotateLabel: true
+			                },
+			                data: graph.nodes,
+			                links: graph.links,
+			                categories: categories,
+			                roam: true,
+			                label: {
+			                    normal: {
+			                        position: 'right',
+			                        formatter: '{b}'
+			                    }
+			                },
+			                lineStyle: {
+			                    normal: {
+			                        color: 'source',
+			                        curveness: 0.3
+			                    }
+			                }
+			            }
+			        ]
+			    };
+
+			    myChart2.setOption(option);
+			}, 'xml');
 	    },
         newsClick:function(e){
             var target = e.target;
@@ -321,22 +463,22 @@ new Vue({
 	data:{
 	  	cardDate:[{
 	  			"title":"绿茶",
-	        	"imgSrc":'tea/cha5.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha5.jpg'
 	        },{
 	        	"title":"苏州碧螺春",
-	        	"imgSrc":'tea/cha2.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha2.jpg'
 	        },{
 	        	"title":"大红袍",
-	        	"imgSrc":'tea/cha7.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha7.jpg'
 	        },{
 	        	"title":"紫阳毛尖",
-	        	"imgSrc":'tea/cha4.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha4.jpg'
 	        },{
 	        	"title":"茉莉花茶",
-	        	"imgSrc":'tea/cha3.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha3.jpg'
 	        },{
 	        	"title":"西湖龙井",
-	        	"imgSrc":'tea/cha6.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha6.jpg'
 	        }],
 	},
 	methods:{
