@@ -378,7 +378,7 @@ new Vue({
 	    drawSystemMap:function(){
 	    	var myChart2 = this.echarts.init(document.querySelector('#myCharts2'))
 	    	myChart2.showLoading();
-			$.get('data/asset/data/les-miserables.gexf', function (xml) {
+			$.get('https://echarts.baidu.com/examples/data/asset/data/les-miserables.gexf', function (xml) {
 			    myChart2.hideLoading();
 
 			    var graph = echarts.dataTool.gexf.parse(xml);
