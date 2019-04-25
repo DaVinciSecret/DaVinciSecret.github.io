@@ -9,9 +9,11 @@
     <script src="lib/jquery.js"></script>
     <script src="lib/echarts.js"></script>
    	<script src="lib/china.js"></script>
-    <script type="text/javascript" src="https://api.map.baidu.com/api?v=2.0&ak=DzwjAGjkNClPbkgLyi5wPqU3Sx5cLUaM
+   	<script src="lib/dataTool.js"></script>
+    <script src="https://api.map.baidu.com/api?v=2.0&ak=DzwjAGjkNClPbkgLyi5wPqU3Sx5cLUaM
 "></script>
     <script type="text/javascript" src="extension/bmap.js"></script>
+    <!-- <script id="xmlData" src="data/asset/data/les-miserables.gexf"></script> -->
 </head>
 <body>
     <div class="all_container">
@@ -121,12 +123,12 @@
 							<!-- 技术 -->
                             <div id="list3" :style="{display: ('list3' == listitem)?'block':'none'}" class="news-list">
                                 <div class="technical-item">
-                                    <div class="technical-card" style="font-size: 30px; text-align: center; width: 300px;height: 300px; background-image:linear-gradient(to bottom, #fff,#0a0);">
-                                    	<p><span style="font-size:100px;color: #0a0;font-weight: bold;">V</span>ue</p>
+                                    <div class="technical-card" style="font-size: 30px; text-align: center; width: 300px;height: 300px;color: #fff;background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%);">
+                                    	<p><span style="font-size:100px;color: #fff;font-weight: bold;">V</span>ue</p>
                                     	<p><span style="font-size: 20px;">vue 2.5.x</span></p>
                                     	<p class="tag"><span class="little-tag tag-clr3" >axios</span><span class="little-tag tag-clr4">v-Router</span><span class="little-tag tag-clr6">v-Vuex</span></p>
                                     </div>
-                                    <div class="technical-card" style="font-size: 30px; text-align: center; height: 350px; width: 240px;background-image:linear-gradient(to top, #fff,#a00);">
+                                    <div class="technical-card" style="font-size: 30px; text-align: center; height: 350px; width: 240px;background-image: linear-gradient(to top, #feada6 0%, #f5efef 100%);">
                                     	<p><span style="font-size:100px;color: #a00;font-weight: bold;">A</span>ngular</p>
                                     	<p><span style="font-size: 20px;">angular 1.0.x</span></p>
                                     	<p class="tag"><span class="little-tag tag-clr7">grunt</span><span class="little-tag"></span>
@@ -135,7 +137,7 @@
                                     	<p><span style="font-size:100px;color: #0aa;font-weight: bold;">N</span>ode.js</p>
                                     	<p class="tag"><span class="little-tag  tag-clr5">webpack</span><span class="little-tag  tag-clr4">ES6</span><span class="little-tag tag-clr2">npm</span></p>
                                     </div>
-                                    <div class="technical-card" style="font-size: 30px; text-align: center;">
+                                    <div class="technical-card" style="font-size: 30px; text-align: center;background-image: linear-gradient(-225deg, #B6CEE8 0%, #F578DC 100%);">
                                     	<p><span style="font-size:100px;color: #a0a;font-weight: bold;">G</span>it</p>
                                     	<p class="tag"><span class="little-tag tag-clr8">SVN</span></p>
                                     </div>
@@ -189,7 +191,7 @@
                 <div class="content-gt">
                     <!-- 标题 -->
                     <div class="gt-title">
-                        <span style="font-size: 20px;color: #fff">恬淡·闲适·宁静</span>
+                        <span style="font-size: 20px;color: #fff">恬淡·闲适·宁静·皮</span>
                     </div>
                     <div class="card-container">
                     	 <div class="card-item">
@@ -221,7 +223,16 @@
                                 <span>apologize</span>
                             </div>
                         </div>
-                        <div class="foot-gt"></div>
+                        <div class="foot-gt">
+                        	<div class="foot-gt-content">
+                        		<span>
+                        			活水还须活火烹，自临钓石取深清。<br> 
+									大瓢贮月归春瓮，小杓分江入夜瓶。<br> 
+									雪乳已翻煎处脚，松风忽作泻时声。<br> 
+									枯肠未晚禁三碗，生听荒城长短更。<br>
+								</span>	
+                        	</div>
+                        </div>
                     </div>
                     <div class="foot-btm"></div>
                 </div>
@@ -233,5 +244,6 @@
 <script src="vue.js"></script>
 <script src="i18n.js"></script>
 <script src="honor.js"></script>
+
 
 </html>

@@ -103,7 +103,7 @@ new Vue({
         	weather:'晴',
         	color:'summer',
         	time:'18/4/2019',
-        	content:'Today is a good day，I fell happy，are you？'
+        	content:'好像开始变热了，今年好像是厄尔尼诺年，真是不幸啊，希望不会有自然灾害的发生。'
         },
         {
         	day:'17',
@@ -112,7 +112,7 @@ new Vue({
         	weather:'风',
         	color:'wind',
         	time:'17/4/2019',
-        	content:'Today is a good day，I fell happy，are you？'
+        	content:'微风拂面，酥服'
         },
         {
         	day:'16',
@@ -121,7 +121,7 @@ new Vue({
         	weather:'雨',
         	color:'rain',
         	time:'16/4/2019',
-        	content:'Today is a good day，I fell happy，are you？'
+        	content:'雨一直下，已经下了一天，从早上下到晚，雨势怎莫还没啥变化。'
         },
         {
         	day:'15',
@@ -130,7 +130,7 @@ new Vue({
         	weather:'云',
         	color:'cloud',
         	time:'15/4/2019',
-        	content:'Today is a good day，I fell happy，are you？'
+        	content:'要不要改成响应式呢？'
         },
         {
         	day:'14',
@@ -139,7 +139,7 @@ new Vue({
         	weather:'阴',
         	color:'shade',
         	time:'14/4/2019',
-        	content:'Today is a good day，I fell happy，are you？'
+        	content:'扬沙，浮尘，漫天都是黄沙,这天气真好，适合放风筝。'
         },
         {
         	day:'13',
@@ -157,7 +157,7 @@ new Vue({
         	weather:'阴',
         	color:'shade',
         	time:'12/4/2019',
-        	content:'Today is a good day，I fell happy，are you？'
+        	content:'这几天天气预报说有沙尘暴，然后会降温10度，后续还会有雨，嗯……这天气真是变得好快'
         },
         {
         	day:'11',
@@ -166,7 +166,7 @@ new Vue({
         	weather:'雨',
         	color:'rain',
         	time:'11/4/2019',
-        	content:'Today is a good day，I fell happy，are you？'
+        	content:'下雨了，还下的挺大的，还刮着风。'
         },{
         	day:'2',
         	month:'1',
