@@ -367,6 +367,8 @@ new Vue({
     },
     mounted(){
       	this.drawMap();
+      	this.drawCirMap();
+      	this.drawLineMap();
       	this.drawSystemMap();
     },
     methods:{
@@ -446,6 +448,14 @@ new Vue({
 
 			    myChart2.setOption(option);
 			}, 'xml');
+	    },
+	    drawCirMap:function(){
+	    	var myChart3 = this.echarts.init(document.querySelector('#myCharts3'));
+	    	myChart3.setOption(circleOption);
+	    },
+	    drawLineMap:function(){
+	    	var myCharts4 = this.echarts.init(document.querySelector('#myCharts4'));
+	    	myCharts4.setOption(lineOption);
 	    },
         newsClick:function(e){
             var target = e.target;

@@ -784,10 +784,20 @@ footer{
 
 
 /*图表*/
-#myCharts{
+#myCharts,#myCharts2,#myCharts3,#myCharts4{
     width: 1000px;
     height: 500px;
     margin:0 auto;
+}
+#myCharts3{
+    width: 300px;
+    float: left;
+}
+#myCharts4{
+    width: 610px;
+    height: 400px;
+    margin-top: 50px;
+    float: right;
 }
 .BMap_cpyCtrl,.anchorBL{
     display: none;
