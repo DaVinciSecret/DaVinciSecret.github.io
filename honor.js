@@ -36,6 +36,73 @@
     }
     setInterval(draw,1000/30);
 })();
+var json;
+function loadData(nodedata){
+	console.log(nodedata);
+	json = nodedata;	
+}
+function drawSystemMap(){
+	setTimeout(function(){
+		var myChart2 = this.echarts.init(document.querySelector('#myCharts2'))
+		// myChart2.showLoading();
+		console.log(json)
+		if(!!json){
+			myChart2.setOption(option = {
+	        title: {
+	            text: 'NPM Dependencies'
+	        },
+	        animationDurationUpdate: 1500,
+	        animationEasingUpdate: 'quinticInOut',
+	        series : [
+	            {
+	                type: 'graph',
+	                layout: 'none',
+	                // progressiveThreshold: 700,
+	                data: json.nodes.map(function (node) {
+	                    return {
+	                        x: node.x,
+	                        y: node.y,
+	                        id: node.id,
+	                        name: node.label,
+	                        symbolSize: node.size,
+	                        itemStyle: {
+	                            normal: {
+	                                color: node.color
+	                            }
+	                        }
+	                    };
+	                }),
+	                edges: json.edges.map(function (edge) {
+	                    return {
+	                        source: edge.sourceID,
+	                        target: edge.targetID
+	                    };
+	                }),
+	                zoom:1.2,
+	                label: {
+	                    emphasis: {
+	                        position: 'right',
+	                        show: true
+	                    }
+	                },
+	                roam: true,
+	                focusNodeAdjacency: true,
+	                lineStyle: {
+	                    normal: {
+	                        width: 0.5,
+	                        curveness: 0.3,
+	                        opacity: 0.7
+	                    }
+	                }
+	            }
+	        ]
+	    	}, true);}
+		},500);
+	
+}
+drawSystemMap();
+
+
 Vue.prototype.i18n = i18n;
 Vue.prototype.echarts = echarts;
 new Vue({
@@ -300,7 +367,7 @@ new Vue({
 					先上图：<br>
 					</div><div class="cl-preview-section"><p>精髓之图！！！<br>
 					<img src="https://img-blog.csdnimg.cn/20181118193444935.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzMjcxODI3,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>
-					这张图看着“比较”复杂，我会对其中的部分进行详细的讲解，<br>
+					看完图片是不是不想看了，hia～hia～hia～ 这张图看着“比较”复杂，我会对其中的部分进行详细的讲解，<br>
 					我会从以下几个部分对这张图的内容进行解释。<br>
 					(1)进程与线程<br>
 					(2)多进程的浏览器<br>
@@ -311,7 +378,7 @@ new Vue({
 					(7)Promise中js处理机制的进阶宏任务与微任务。<br>
 					</div><div class="cl-preview-section"><p>对于这篇文章目前的规划就是这些。接下来就来聊聊这些。<br>
 					<h3>(1)进程与线程</h3><br>
-					为什么要说这个，对于大多数人也许了解什么是进程什么是线程，即便如此还是有必要说一说的，并且很多人对于浏览器是类型的却并不了解，所以有必要说一下。<br>
+					为什么要说这个，对于大多数人也许了解什么是进程什么是线程，即便如此还是有必要说一说的，并且很多人对于浏览器是什么类型的却并不了解，所以有必要说一下。<br>
 					进程是内存分配的最小单位<br>
 					线程是cpu调度的最小单位<br>
 					抽象派：<br>
@@ -321,7 +388,7 @@ new Vue({
 					浏览器是多进程的，可以通过查看浏览器的任务管理器了解
 					</div><div class="cl-preview-section"><p>浏览器是多进程的，并且每打开一个新的tab页，就会增加一个进程。<br>
 					并且相同的tab页的进程会被合并，这些可以自行验证。<br>
-					浏览的对进程主要有以下几个：</p>
+					浏览器的进程主要有以下几个：</p>
 					</div><div class="cl-preview-section"><ul>
 					<li style:"text-decoration:underline;">Browser进程</li>
 					<li style:"text-decoration:underline;">render进程</li>
@@ -329,7 +396,7 @@ new Vue({
 					<li style:"text-decoration:underline;">第三方插件进程</li>
 					<li style:"text-decoration:underline;">以及每个tab页都是一个进程</li>
 					</ul>
-					</div><div class="cl-preview-section"><p>(3)js单线程<br>
+					</div><div class="cl-preview-section"><p><h3>(3)js单线程</h3><br>
 					我们所接触的每个页面是一个进程，而参与处理这个页面的进程主要是由render进程完成的，render进程内部又是多线程的，主要分为以下几个线程</p>
 					</div><div class="cl-preview-section"><ul>
 					<li style:"font-weight:bold;font-size:18px;">异步的http请求线程；</li>
@@ -349,7 +416,7 @@ new Vue({
 					：事件列表，存放所有的异步任务，在事件列表中挂起执行，<br>
 					：事件队列，异步任务执行得到响应后，会将对应的完成的异步任务事件加至事件队列中，之后被ESC执行栈调用。<br>
 					整个的这一过程就是EventLoop的机制。<br>
-					对于主线程上的任务，他们会进入ESC执行栈，受执行栈直接控制，然后对应的异步任务，会被对应的线程进行管理，回调类型的异步任务会进入事件列表，此类任务会被挂起执行，等待I/O返回结果，结果返回后，会被推入事件列表，等待ESC执行栈中的任务执行完毕，然后进行EventLoop（事件循环），会到事件队列中的头部获取等待执行的任务。对于定时器类型的异步任务，直接由定时器事件触发线程管理，定时到时后就会将任务直接推入事件队列之中，如此循环往复，只要ESC执行栈中的任务结束，也就是主线程上的任务结束，就会进行事件循环，检查事件列表，异步任务，通过各自线程的管理进入事件列表，在没有主线程任务时被ESC获取，这就是最初的js执行机制。<br>
+					对于主线程上的任务，他们会进入ESC执行栈，受执行栈直接控制，然后对应的异步任务，会被对应的线程进行管理，回调类型的异步任务会进入事件列表，此类任务会被挂起执行，等待I/O返回结果，结果返回后，会被推入事件队列，等待ESC执行栈中的任务执行完毕，然后进行EventLoop（事件循环），ESC会到事件队列中的头部获取等待执行的任务。对于定时器类型的异步任务，直接由定时器事件触发线程管理，定时到时后就会将任务直接推入事件队列之中，如此循环往复，只要ESC执行栈中的任务结束，也就是主线程上的任务结束，就会进行事件循环，检查事件列表，异步任务，通过各自线程的管理进入事件列表，在没有主线程任务时被ESC获取，这就是最初的js执行机制。<br>
 					对于执行栈部分的js代码解析过程，在本章节不重点讨论。但是大概说一下，因为涉及到的知识点比较多如词法作用域、scope、scope chain、prototype、prototype chain、VO、AO、以及Context（执行期上下文）、解析规则等等的问题，可以重新开几个章节讨论了,所以我只提几个点，<br>
 					像之前说的任务进入ESC执行栈中执行，说白了就是function里的代码在ESC执行栈里执行，但是在进入ESC执行栈执行之前还会有好多的事情发生，在函数创建的时候，就会发生一件事，即函数的作用域在它定义时就决定了，函数内部的属性[[scope]]会保存所有函数外部变量到其中，就是所有外部变量对象的层级连，然后在函数进入ESC时函数被激活，别以为就这么简单，在激活的时候，也会发生很多事，创建作用域、创建活动对象AO，并且初始化AO，加入形参，函数声明，变量声明，然后会就将AO对象压入自身作用域链的顶端，然后才开始操作函数，函数执行的时候就是对AO对象进行修改，需要什么先在自己的AO上找，找不到就沿着作用链向上找。最后函数执行结束，从ESC中弹出，被释放。大致就是如此。</p>
 					</div><div class="cl-preview-section"><hr>
@@ -367,88 +434,19 @@ new Vue({
     },
     mounted(){
       	this.drawMap();
+      	
       	this.drawCirMap();
       	this.drawLineMap();
-      	this.drawSystemMap();
+      	// this.drawSystemMap();
+    },
+    beforUpdate(){
+    	this.drawSystemMap();	
     },
     methods:{
     	drawMap:function(){
     		var airChart = this.echarts.init(document.querySelector('#airCharts'));
 	        // 绘制图表
 	        airChart.setOption(airOption);
-	    },
-	    drawSystemMap:function(){
-	    	var myChart2 = this.echarts.init(document.querySelector('#myCharts2'))
-	    	myChart2.showLoading();
-
-			// $.get('https://echarts.baidu.com/data/asset/data/les-miserables.gexf', function (xml) {
-			    myChart2.hideLoading();
-
-			    // var graph = echarts.dataTool.gexf.parse(xml);
-			    var graph = graphData;
-			    var categories = [];
-			    for (var i = 0; i < 9; i++) {
-			        categories[i] = {
-			            name: '类目' + i
-			        };
-			    }
-			    graph.nodes.forEach(function (node) {
-			        node.itemStyle = null;
-			        node.value = node.symbolSize;
-			        node.symbolSize /= 1.5;
-			        node.label = {
-			            normal: {
-			                show: node.symbolSize > 10
-			            }
-			        };
-			        node.category = node.attributes.modularity_class;
-			    });
-			    option = {
-			        title: {
-			            text: 'Les Miserables',
-			            subtext: 'Circular layout',
-			            top: 'bottom',
-			            left: 'right'
-			        },
-			        tooltip: {},
-			        legend: [{
-			            // selectedMode: 'single',
-			            data: categories.map(function (a) {
-			                return a.name;
-			            })
-			        }],
-			        animationDurationUpdate: 1500,
-			        animationEasingUpdate: 'quinticInOut',
-			        series : [
-			            {
-			                name: 'Les Miserables',
-			                type: 'graph',
-			                layout: 'circular',
-			                circular: {
-			                    rotateLabel: true
-			                },
-			                data: graph.nodes,
-			                links: graph.links,
-			                categories: categories,
-			                roam: true,
-			                label: {
-			                    normal: {
-			                        position: 'right',
-			                        formatter: '{b}'
-			                    }
-			                },
-			                lineStyle: {
-			                    normal: {
-			                        color: 'source',
-			                        curveness: 0.3
-			                    }
-			                }
-			            }
-			        ]
-			    };
-
-			    myChart2.setOption(option);
-			// }, 'xml');
 	    },
 	    drawCirMap:function(){
 	    	var myChart3 = this.echarts.init(document.querySelector('#myCharts3'));
@@ -475,22 +473,28 @@ new Vue({
 	data:{
 	  	cardDate:[{
 	  			"title":"绿茶",
-	        	"imgSrc":'data/asset/image/tea/cha5.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha5.jpg',
+	        	"words":"绿茶还是少喝吧，省的太绿了"
 	        },{
 	        	"title":"苏州碧螺春",
-	        	"imgSrc":'data/asset/image/tea/cha2.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha2.jpg',
+	        	"words":"据说有一株特供碧螺春母树，天价，想喝……"
 	        },{
 	        	"title":"大红袍",
-	        	"imgSrc":'data/asset/image/tea/cha7.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha7.jpg',
+	        	"words":"这个暖胃，热性茶，胃寒姨妈什么的最好了"
 	        },{
 	        	"title":"紫阳毛尖",
-	        	"imgSrc":'data/asset/image/tea/cha4.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha4.jpg',
+	        	"words":"这种茶富含硒，补脑子"
 	        },{
 	        	"title":"茉莉花茶",
-	        	"imgSrc":'data/asset/image/tea/cha3.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha3.jpg',
+	        	"words":"败火的好茶，还很清香，还好看的不行"
 	        },{
 	        	"title":"西湖龙井",
-	        	"imgSrc":'data/asset/image/tea/cha6.jpg'
+	        	"imgSrc":'data/asset/image/tea/cha6.jpg',
+	        	"words":"也就是被吹出来的，喝着也就那样"
 	        }],
 	},
 	methods:{

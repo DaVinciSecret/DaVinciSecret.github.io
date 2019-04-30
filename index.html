@@ -205,7 +205,7 @@
                                 <img :src="item.imgSrc" alt="">
                             </div>
                             <div class="card-foot">
-                                <a href="" style="font-size: 12px;">生活就是一杯沁人心脾的青茗……</a>
+                                <a href="" style="font-size: 12px;" v-text="item.words"></a>
                                 <a href=""></a>
                             </div>
                         </div>
@@ -244,11 +244,11 @@
         </div>
     </div>
 </body>
-<script src="nodeData.js"></script>
 <script src="airMap.js"></script>
 <script src="vue.js"></script>
 <script src="i18n.js"></script>
 <script src="honor.js"></script>
+<script src="nodeData.json?callback=loadData"></script>
 
 
 </html>

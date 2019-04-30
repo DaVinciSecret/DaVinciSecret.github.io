@@ -790,6 +790,9 @@ footer{
     height: 500px;
     margin:0 auto;
 }
+#myCharts2{
+    width: 900px;
+}
 #myCharts3{
     width: 300px;
     float: left;

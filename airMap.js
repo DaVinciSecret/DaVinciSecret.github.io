@@ -411,6 +411,7 @@ var airOption = {
         center: [70, 50],
         // zoom: 1,
         roam: true,
+        scaleLimit:{min:1,max:2},
         mapStyle: {
             styleJson: [{
                 'featureType': 'water',
@@ -523,7 +524,7 @@ var airOption = {
                     }
                 },
                 roam:false,
-                scaleLimit:{min:1,max:3}
+                scaleLimit:{min:1,max:2}
             },
             coordinateSystem: 'bmap',
             data: convertData(data),
@@ -770,3 +771,4 @@ var lineOption = {
         }*/
     ]
 };
+
