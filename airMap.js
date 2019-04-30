@@ -637,7 +637,7 @@ var circleOption = {
             radius : '65%',
             center: ['50%', '50%'],
             data:[
-                {value:335, name:'HTMLs'},
+                {value:335, name:'HTML'},
                 {value:310, name:'JavaScript'},
                 {value:274, name:'CSS'},
                 {value:235, name:'Node'},

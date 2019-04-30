@@ -373,18 +373,19 @@ new Vue({
     },
     methods:{
     	drawMap:function(){
-    		var myChart = this.echarts.init(document.querySelector('#myCharts'));
+    		var airChart = this.echarts.init(document.querySelector('#airCharts'));
 	        // 绘制图表
-	        myChart.setOption(airOption);
+	        airChart.setOption(airOption);
 	    },
 	    drawSystemMap:function(){
 	    	var myChart2 = this.echarts.init(document.querySelector('#myCharts2'))
 	    	myChart2.showLoading();
 
-			$.get('https://echarts.baidu.com/data/asset/data/les-miserables.gexf', function (xml) {
+			// $.get('https://echarts.baidu.com/data/asset/data/les-miserables.gexf', function (xml) {
 			    myChart2.hideLoading();
 
-			    var graph = echarts.dataTool.gexf.parse(xml);
+			    // var graph = echarts.dataTool.gexf.parse(xml);
+			    var graph = graphData;
 			    var categories = [];
 			    for (var i = 0; i < 9; i++) {
 			        categories[i] = {
@@ -447,7 +448,7 @@ new Vue({
 			    };
 
 			    myChart2.setOption(option);
-			}, 'xml');
+			// }, 'xml');
 	    },
 	    drawCirMap:function(){
 	    	var myChart3 = this.echarts.init(document.querySelector('#myCharts3'));
