@@ -275,6 +275,17 @@ new Vue({
         	content:'没有绝对的好人，也没有绝对的坏人。<br/>&nbsp;&nbsp;&nbsp;&nbsp;好人有时也会做坏事，坏人有时也会做好事。杀一人为罪，杀一千为雄……，做的都是自己内心觉得正确的事，真正的好坏不在事情本身，而在做事人的内心。就如同阴阳的太极图一般，都有各自强盛的一面，也都有各自薄弱的一面，好坏也是如此，只要不越过那道边界，就不会产生本质的改变，这也就是所谓的底线。',
         }],
         technicalData:[{
+        	title:'github Page访问速度慢的原因',
+        	subtitle:'你猜，看你能猜到不?',
+        	time:'5/12/2017',
+        	author:'川枫·流',
+        	content:`<div class="preview"><div class="preview__inner-1"><div class="preview__inner-2 markdown_views prism-atom-one-dark" style="padding: 10px 20px 20px;"><div class="cl-preview-section">
+					<br>
+					</p>
+					<div>这么简单的原因你都猜不到吗？服务器在国外啊,而且git拒绝部分搜索引擎爬虫,这就导致访问个人主页时访问相应比较慢，甚至页面无响应。</div>
+					<div>这个主页也是如此。解决的办法倒不是没有，例如首先页面的资源尽量是不同源的，可以利用CDN，或者有钱的自己买个vpn，再不济的用国内的那个git，我没用过，不知道效果如何。要是真想得到好的页面响应效果，还是自己搭个服务器，买个域名吧</div>	
+					</div></div> <div class="gutter" style="left: 0px;"><!----></div></div> <!----></div>`
+        },{
         	title:'原型和原型链',
         	subtitle:'程序如同艺术 ，源于生活而又高于生活…(扯淡！！)',
         	time:'2/16/2017',
