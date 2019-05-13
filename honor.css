@@ -1,3 +1,25 @@
+/* ===================================================================
+11px = 85%        12px = 93%        13px = 100%        14px = 108%
+15px = 116%        16px = 123.1%    17px = 131%        18px = 138.5%
+19px = 146.5%    20px = 153.9%    21px = 161.6%    22px = 167%
+23px = 174%        24px = 182%        25px = 189%        26px = 197%
+=================================================================== */
+html {font-size: 62.5%!important; /* 10÷16=62.5% */}
+@media only screen and (min-width: 481px){
+    html {
+        font-size: 94%!important; /* 15.04÷16=94% */
+    }
+}
+@media only screen and (min-width: 561px){
+    html {
+        font-size: 109%!important; /* 17.44÷16=109% */
+    }
+}
+@media only screen and (min-width: 641px){
+    html {
+        font-size: 125%!important; /* 20÷16=125% */
+    }
+}
 
 body{
     background: #000;
@@ -213,6 +235,7 @@ header{
     margin:0 auto;
     position: relative;
 }
+
 .swiper-img{
     /* min-width: 768px;
     max-width: 1080px; */
@@ -318,7 +341,7 @@ ul.news-menu>li>a{
     display: inline-block;
 }
 ul.news-menu>li>a:hover{
-    background: #a1a1a1;
+    background: #ddd;
     color: #000 !important;
 }
 ul.news-menu>li>a:focus{
@@ -338,10 +361,10 @@ div.news-list{
     
 }
 #list1,#list2,#list3,#list4{
-    box-shadow: 0 0 20px 2px #fff;
+    box-shadow: 0 0 4px 4px #fff;
 }
 .news-menu{
-    box-shadow: 0 8px 20px 2px #fff;
+    box-shadow: 0 0px 4px 2px #fff;
 }
 
 /*隐藏滚动条 safari/chrome*/
@@ -623,6 +646,7 @@ ul.news-menu::after{
     /*隐藏滚动条 IE10/FireFox*/
     -ms-overflow-style: none; 
     overflow: -moz-scrollbars-none; 
+    box-shadow: 0 0 2px 4px #fff;
 }
 /*隐藏滚动条 safari/chrome*/
 div.card-container::-webkit-scrollbar {display:none} 
@@ -800,7 +824,7 @@ footer{
 }
 #myCharts4{
     width: 610px;
-    height: 400px;
+    height: 350px;
     margin-top: 50px;
     float: right;
 }
