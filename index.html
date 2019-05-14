@@ -51,7 +51,7 @@
                         <div class="swiper"
                         @mouseenter="stopInterval" @mouseout="startInterval">
                             <div v-for="(p,i) in imglist" :key="i" class="swiper-img" :style="{opacity:(i+1)==n?'1':'0'}">
-                                <img :src="p" alt="">
+                                <img :src="p" alt="image">
                             </div>
                         </div>
                         <!-- 提示小标 -->

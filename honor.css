@@ -4,22 +4,6 @@
 19px = 146.5%    20px = 153.9%    21px = 161.6%    22px = 167%
 23px = 174%        24px = 182%        25px = 189%        26px = 197%
 =================================================================== */
-html {font-size: 62.5%!important; /* 10÷16=62.5% */}
-@media only screen and (min-width: 481px){
-    html {
-        font-size: 94%!important; /* 15.04÷16=94% */
-    }
-}
-@media only screen and (min-width: 561px){
-    html {
-        font-size: 109%!important; /* 17.44÷16=109% */
-    }
-}
-@media only screen and (min-width: 641px){
-    html {
-        font-size: 125%!important; /* 20÷16=125% */
-    }
-}
 
 body{
     background: #000;
@@ -250,6 +234,12 @@ header{
     width: 100%;
     height: 100%;
     cursor: pointer;
+}
+.showLoading{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: #aaa;
 }
 .swipe-lt,.swipe-gt{
     width: 30px;
